@@ -26,15 +26,14 @@ const merchantPaymentData = {
 }
 
 let performValidation = (validation_url) => {
+    console.log(validation_url);
     return new Promise(function(resolve, reject) {
         // запрос на получение сессии
-        /*var req = new XMLHttpRequest();
+        var req = new XMLHttpRequest();
         req.open("POST", "https://pci-ws.wooppay.com/cashin/applepay/validate-merchant", false);
         req.setRequestHeader('Content-Type', 'application/json');
         req.send(JSON.stringify({validation_url: validation_url}));
         resolve(JSON.parse(req.responseText));  // тело ответа - сессия
-        */
-        resolve('asdasd');
     });
 }
 
@@ -72,6 +71,8 @@ if (window.ApplePaySession) {
                     performValidation(event.validationURL)
                         .then((merchantSession) => {
                             // завершаем валидацию платежной сессии
+                        console.log(merchantSession);
+                        console.log('type' + typeof(merchantSession));
                             document.getElementById('validate').textContent = JSON.stringify(merchantSession);
                             applePaySession.completeMerchantValidation(merchantSession);
                         })
