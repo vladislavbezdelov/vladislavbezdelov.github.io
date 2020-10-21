@@ -8,6 +8,7 @@
 <body>
 <button id="applepay-btn" class="apple-pay-button apple-pay-button-black"></button>
 <pre style="width: 100%" id="validate"></pre>
+    <pre style="width: 100%" id="sessionType"></pre>
 <pre style="width: 100%" id="authorize"></pre>
 <script>
     const paymentRequest = {
@@ -72,7 +73,7 @@ if (window.ApplePaySession) {
                         .then((merchantSession) => {
                             // завершаем валидацию платежной сессии
                         console.log(merchantSession);
-                        console.log('type' + typeof(merchantSession));
+                         document.getElementById('sessionType').textContent = 'type ' + typeof(merchantSession);
                             document.getElementById('validate').textContent = JSON.stringify(merchantSession);
                             applePaySession.completeMerchantValidation(merchantSession);
                         })
