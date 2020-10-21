@@ -73,7 +73,7 @@ if (window.ApplePaySession) {
                         .then((merchantSession) => {
                             // завершаем валидацию платежной сессии
                         console.log(merchantSession);
-                         document.getElementById('sessionType').textContent = 'type ' + typeof(merchantSession);
+                         document.getElementById('sessionType').textContent = typeof(merchantSession);
                             document.getElementById('validate').textContent = JSON.stringify(merchantSession);
                             applePaySession.completeMerchantValidation(merchantSession);
                         })
