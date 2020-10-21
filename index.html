@@ -83,7 +83,7 @@ if (window.ApplePaySession) {
                             }
                         );
                 };
-                applePaySession.onpaymentauthorized = (event) => {
+                /*applePaySession.onpaymentauthorized = (event) => {
                     performAuthorization(event.payment)
                         .then((success) => {
                             if (success) {
@@ -96,7 +96,7 @@ if (window.ApplePaySession) {
                             console.log(reason);
                             applePaySession.completePayment(window.ApplePaySession.STATUS_FAILURE);
                         })
-                };
+                };*/
                 applePaySession.begin();
             }
         }
